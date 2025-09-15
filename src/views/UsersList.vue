@@ -15,17 +15,39 @@
 import { ref, onMounted, computed } from 'vue'
 import api from '@/services/api'
 
-type Usuario = { id:number; nombre:string; email:string; rol:'admin'|'usuario' }
+type Usuario = { 
+  id: number;
+  nombre: string;
+  email: string;
+  rol: 'admin'|'usuario';
+  created_at: string;
+  updated_at: string;
+}
 
 const props = defineProps<{ searchTerm?: string }>()
 
 const items = ref<Usuario[]>([])
 const loading = ref(false)
 
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleString('es', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
 const headers = [
   { title: 'Nombre', value: 'nombre' },
   { title: 'Email',  value: 'email' },
   { title: 'Rol',    value: 'rol' },
+  { 
+    title: 'Fecha de creación',
+    value: 'created_at',
+    format: (value: string) => formatDate(value)
+  },
 ]
 
 // carga desde la API
