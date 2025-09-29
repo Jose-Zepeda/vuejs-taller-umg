@@ -2,13 +2,11 @@ import axios from 'axios';
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL || 'http://3.22.170.136/api',
 });
+// Configurar interceptores para tokens Bearer
 api.interceptors.request.use((config) => {
-    // rutas que no deben llevar token
-    const noAuthEndpoints = ['/login', '/register'];
-    if (!noAuthEndpoints.includes(config.url || '')) {
-        const token = localStorage.getItem('token');
-        if (token)
-            config.headers.Authorization = `Bearer ${token}`;
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
 });

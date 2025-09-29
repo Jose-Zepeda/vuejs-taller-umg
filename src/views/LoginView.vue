@@ -47,7 +47,7 @@ const onSubmit = async () => {
     errorMsg.value = ''
     loading.value = true
     try {
-        // Llamada a tu endpoint
+        // Login directo sin CSRF (usando Bearer tokens)
         const { data } = await api.post('/login', {
             email: email.value,
             password: password.value,
@@ -61,6 +61,7 @@ const onSubmit = async () => {
         const redirect = (route.query.redirect as string) || '/usuarios'
         router.push(redirect)
     } catch (e: any) {
+        console.error('Login error:', e)
         // Mensaje claro desde backend o genérico
         errorMsg.value = e?.response?.data?.message
             || e?.response?.data?.errors?.email?.[0]

@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '@/services/api';
 import FormTarea from './FormTarea.vue';
 
 export default {
@@ -99,15 +99,21 @@ export default {
     async cargarTareas() {
       try {
         this.cargando = true;
-        const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8000/api/tareas/listTareas', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        this.tareas = response.data.data;
+        const response = await api.get('/tareas/listTareas');
+        console.log('Respuesta cargar tareas:', response.data);
+        
+        // Manejar diferentes formatos de respuesta
+        if (response.data && Array.isArray(response.data)) {
+          this.tareas = response.data;
+        } else if (response.data && Array.isArray(response.data.data)) {
+          this.tareas = response.data.data;
+        } else {
+          console.error('Formato de respuesta inesperado:', response.data);
+          this.tareas = [];
+        }
       } catch (error) {
         console.error('Error al cargar tareas:', error);
+        this.tareas = [];
       } finally {
         this.cargando = false;
       }
@@ -137,12 +143,7 @@ export default {
 
     async eliminarTarea() {
       try {
-        const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:8000/api/tareas/deleteTarea/${this.tareaAEliminar.id}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        await api.delete(`/tareas/deleteTarea/${this.tareaAEliminar.id}`);
         this.cargarTareas();
         this.dialogEliminar = false;
       } catch (error) {

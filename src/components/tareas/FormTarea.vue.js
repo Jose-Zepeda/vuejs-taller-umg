@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from '@/services/api';
 export default (await import('vue')).defineComponent({
     name: 'FormTarea',
     data: () => ({
@@ -20,13 +20,8 @@ export default (await import('vue')).defineComponent({
     methods: {
         async cargarUsuarios() {
             try {
-                const token = localStorage.getItem('token');
                 console.log('Cargando usuarios...');
-                const response = await axios.get('http://localhost:8000/api/usuarios/listUsers', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
+                const response = await api.get('/usuarios/listUsers');
                 console.log('Respuesta:', response.data);
                 if (response.data && Array.isArray(response.data)) {
                     this.usuarios = response.data;
@@ -46,21 +41,17 @@ export default (await import('vue')).defineComponent({
         },
         async guardarTarea() {
             try {
-                const token = localStorage.getItem('token');
                 const url = this.editando
-                    ? `http://localhost:8000/api/tareas/updateTarea/${this.tarea.id}`
-                    : 'http://localhost:8000/api/tareas/addTarea';
-                const method = this.editando ? 'put' : 'post';
+                    ? `/tareas/updateTarea/${this.tarea.id}`
+                    : '/tareas/addTarea';
                 // Asegurar que usuario_id sea un número
                 if (this.tarea.usuario_id) {
                     this.tarea.usuario_id = parseInt(this.tarea.usuario_id);
                 }
                 console.log('Enviando tarea:', this.tarea);
-                const response = await axios[method](url, this.tarea, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
+                const response = this.editando
+                    ? await api.put(url, this.tarea)
+                    : await api.post(url, this.tarea);
                 console.log('Respuesta:', response.data);
                 this.$emit('tarea-guardada');
                 this.cerrarDialogo();
