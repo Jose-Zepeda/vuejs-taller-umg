@@ -13,7 +13,7 @@ export default (await import('vue')).defineComponent({
             { title: 'Estado', key: 'estado' },
             { title: 'Usuario Asignado', key: 'usuario.nombre' },
             { title: 'Fecha Vencimiento', key: 'fecha_vencimiento' },
-            { title: 'Acciones', key: 'actions', sortable: false }
+            { title: 'Acciones', key: 'actions', sortable: false, align: 'center', width: '120px' }
         ],
         tareas: [],
         cargando: true,
@@ -184,20 +184,22 @@ const { default: __VLS_24 } = __VLS_23.slots;
 {
     const { 'item.actions': __VLS_32 } = __VLS_23.slots;
     const [{ item }] = __VLS_getSlotParameters(__VLS_32);
-    const __VLS_33 = {}.VIcon;
-    /** @type {[typeof __VLS_components.VIcon, typeof __VLS_components.vIcon, typeof __VLS_components.VIcon, typeof __VLS_components.vIcon, ]} */ ;
+    const __VLS_33 = {}.VBtn;
+    /** @type {[typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, ]} */ ;
     // @ts-ignore
-    VIcon;
+    VBtn;
     // @ts-ignore
     const __VLS_34 = __VLS_asFunctionalComponent(__VLS_33, new __VLS_33({
         ...{ 'onClick': {} },
-        small: true,
-        ...{ class: "mr-2" },
+        color: "primary",
+        variant: "text",
+        title: "Editar",
     }));
     const __VLS_35 = __VLS_34({
         ...{ 'onClick': {} },
-        small: true,
-        ...{ class: "mr-2" },
+        color: "primary",
+        variant: "text",
+        title: "Editar",
     }, ...__VLS_functionalComponentArgsRest(__VLS_34));
     let __VLS_37;
     let __VLS_38;
@@ -208,168 +210,197 @@ const { default: __VLS_24 } = __VLS_23.slots;
                 [editarTarea,];
             } });
     const { default: __VLS_40 } = __VLS_36.slots;
-    var __VLS_36;
     const __VLS_41 = {}.VIcon;
     /** @type {[typeof __VLS_components.VIcon, typeof __VLS_components.vIcon, typeof __VLS_components.VIcon, typeof __VLS_components.vIcon, ]} */ ;
     // @ts-ignore
     VIcon;
     // @ts-ignore
     const __VLS_42 = __VLS_asFunctionalComponent(__VLS_41, new __VLS_41({
-        ...{ 'onClick': {} },
-        small: true,
+        left: true,
     }));
     const __VLS_43 = __VLS_42({
-        ...{ 'onClick': {} },
-        small: true,
+        left: true,
     }, ...__VLS_functionalComponentArgsRest(__VLS_42));
-    let __VLS_45;
-    let __VLS_46;
-    const __VLS_47 = ({ click: {} },
+    const { default: __VLS_45 } = __VLS_44.slots;
+    var __VLS_44;
+    var __VLS_36;
+    const __VLS_46 = {}.VBtn;
+    /** @type {[typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, ]} */ ;
+    // @ts-ignore
+    VBtn;
+    // @ts-ignore
+    const __VLS_47 = __VLS_asFunctionalComponent(__VLS_46, new __VLS_46({
+        ...{ 'onClick': {} },
+        color: "red",
+        variant: "text",
+        title: "Eliminar",
+    }));
+    const __VLS_48 = __VLS_47({
+        ...{ 'onClick': {} },
+        color: "red",
+        variant: "text",
+        title: "Eliminar",
+    }, ...__VLS_functionalComponentArgsRest(__VLS_47));
+    let __VLS_50;
+    let __VLS_51;
+    const __VLS_52 = ({ click: {} },
         { onClick: (...[$event]) => {
                 __VLS_ctx.confirmarEliminar(item);
                 // @ts-ignore
                 [confirmarEliminar,];
             } });
-    const { default: __VLS_48 } = __VLS_44.slots;
-    var __VLS_44;
+    const { default: __VLS_53 } = __VLS_49.slots;
+    const __VLS_54 = {}.VIcon;
+    /** @type {[typeof __VLS_components.VIcon, typeof __VLS_components.vIcon, typeof __VLS_components.VIcon, typeof __VLS_components.vIcon, ]} */ ;
+    // @ts-ignore
+    VIcon;
+    // @ts-ignore
+    const __VLS_55 = __VLS_asFunctionalComponent(__VLS_54, new __VLS_54({
+        left: true,
+    }));
+    const __VLS_56 = __VLS_55({
+        left: true,
+    }, ...__VLS_functionalComponentArgsRest(__VLS_55));
+    const { default: __VLS_58 } = __VLS_57.slots;
+    var __VLS_57;
+    var __VLS_49;
 }
 var __VLS_23;
 var __VLS_3;
-const __VLS_49 = {}.FormTarea;
+const __VLS_59 = {}.FormTarea;
 /** @type {[typeof __VLS_components.FormTarea, typeof __VLS_components.formTarea, typeof __VLS_components.FormTarea, typeof __VLS_components.formTarea, ]} */ ;
 // @ts-ignore
 FormTarea;
 // @ts-ignore
-const __VLS_50 = __VLS_asFunctionalComponent(__VLS_49, new __VLS_49({
+const __VLS_60 = __VLS_asFunctionalComponent(__VLS_59, new __VLS_59({
     ...{ 'onTareaGuardada': {} },
     ref: "formTarea",
 }));
-const __VLS_51 = __VLS_50({
+const __VLS_61 = __VLS_60({
     ...{ 'onTareaGuardada': {} },
     ref: "formTarea",
-}, ...__VLS_functionalComponentArgsRest(__VLS_50));
-let __VLS_53;
-let __VLS_54;
-const __VLS_55 = ({ tareaGuardada: {} },
+}, ...__VLS_functionalComponentArgsRest(__VLS_60));
+let __VLS_63;
+let __VLS_64;
+const __VLS_65 = ({ tareaGuardada: {} },
     { onTareaGuardada: (__VLS_ctx.cargarTareas) });
 /** @type {typeof __VLS_ctx.formTarea} */ ;
-var __VLS_56 = {};
+var __VLS_66 = {};
 // @ts-ignore
 [cargarTareas, formTarea,];
-var __VLS_52;
-const __VLS_59 = {}.VDialog;
+var __VLS_62;
+const __VLS_69 = {}.VDialog;
 /** @type {[typeof __VLS_components.VDialog, typeof __VLS_components.vDialog, typeof __VLS_components.VDialog, typeof __VLS_components.vDialog, ]} */ ;
 // @ts-ignore
 VDialog;
 // @ts-ignore
-const __VLS_60 = __VLS_asFunctionalComponent(__VLS_59, new __VLS_59({
+const __VLS_70 = __VLS_asFunctionalComponent(__VLS_69, new __VLS_69({
     modelValue: (__VLS_ctx.dialogEliminar),
     maxWidth: "500px",
 }));
-const __VLS_61 = __VLS_60({
+const __VLS_71 = __VLS_70({
     modelValue: (__VLS_ctx.dialogEliminar),
     maxWidth: "500px",
-}, ...__VLS_functionalComponentArgsRest(__VLS_60));
-const { default: __VLS_63 } = __VLS_62.slots;
+}, ...__VLS_functionalComponentArgsRest(__VLS_70));
+const { default: __VLS_73 } = __VLS_72.slots;
 // @ts-ignore
 [dialogEliminar,];
-const __VLS_64 = {}.VCard;
+const __VLS_74 = {}.VCard;
 /** @type {[typeof __VLS_components.VCard, typeof __VLS_components.vCard, typeof __VLS_components.VCard, typeof __VLS_components.vCard, ]} */ ;
 // @ts-ignore
 VCard;
 // @ts-ignore
-const __VLS_65 = __VLS_asFunctionalComponent(__VLS_64, new __VLS_64({}));
-const __VLS_66 = __VLS_65({}, ...__VLS_functionalComponentArgsRest(__VLS_65));
-const { default: __VLS_68 } = __VLS_67.slots;
-const __VLS_69 = {}.VCardTitle;
+const __VLS_75 = __VLS_asFunctionalComponent(__VLS_74, new __VLS_74({}));
+const __VLS_76 = __VLS_75({}, ...__VLS_functionalComponentArgsRest(__VLS_75));
+const { default: __VLS_78 } = __VLS_77.slots;
+const __VLS_79 = {}.VCardTitle;
 /** @type {[typeof __VLS_components.VCardTitle, typeof __VLS_components.vCardTitle, typeof __VLS_components.VCardTitle, typeof __VLS_components.vCardTitle, ]} */ ;
 // @ts-ignore
 VCardTitle;
 // @ts-ignore
-const __VLS_70 = __VLS_asFunctionalComponent(__VLS_69, new __VLS_69({
+const __VLS_80 = __VLS_asFunctionalComponent(__VLS_79, new __VLS_79({
     ...{ class: "text-h5" },
 }));
-const __VLS_71 = __VLS_70({
+const __VLS_81 = __VLS_80({
     ...{ class: "text-h5" },
-}, ...__VLS_functionalComponentArgsRest(__VLS_70));
-const { default: __VLS_73 } = __VLS_72.slots;
-var __VLS_72;
-const __VLS_74 = {}.VCardActions;
+}, ...__VLS_functionalComponentArgsRest(__VLS_80));
+const { default: __VLS_83 } = __VLS_82.slots;
+var __VLS_82;
+const __VLS_84 = {}.VCardActions;
 /** @type {[typeof __VLS_components.VCardActions, typeof __VLS_components.vCardActions, typeof __VLS_components.VCardActions, typeof __VLS_components.vCardActions, ]} */ ;
 // @ts-ignore
 VCardActions;
 // @ts-ignore
-const __VLS_75 = __VLS_asFunctionalComponent(__VLS_74, new __VLS_74({}));
-const __VLS_76 = __VLS_75({}, ...__VLS_functionalComponentArgsRest(__VLS_75));
-const { default: __VLS_78 } = __VLS_77.slots;
-const __VLS_79 = {}.VSpacer;
+const __VLS_85 = __VLS_asFunctionalComponent(__VLS_84, new __VLS_84({}));
+const __VLS_86 = __VLS_85({}, ...__VLS_functionalComponentArgsRest(__VLS_85));
+const { default: __VLS_88 } = __VLS_87.slots;
+const __VLS_89 = {}.VSpacer;
 /** @type {[typeof __VLS_components.VSpacer, typeof __VLS_components.vSpacer, typeof __VLS_components.VSpacer, typeof __VLS_components.vSpacer, ]} */ ;
 // @ts-ignore
 VSpacer;
 // @ts-ignore
-const __VLS_80 = __VLS_asFunctionalComponent(__VLS_79, new __VLS_79({}));
-const __VLS_81 = __VLS_80({}, ...__VLS_functionalComponentArgsRest(__VLS_80));
-const __VLS_84 = {}.VBtn;
+const __VLS_90 = __VLS_asFunctionalComponent(__VLS_89, new __VLS_89({}));
+const __VLS_91 = __VLS_90({}, ...__VLS_functionalComponentArgsRest(__VLS_90));
+const __VLS_94 = {}.VBtn;
 /** @type {[typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, ]} */ ;
 // @ts-ignore
 VBtn;
 // @ts-ignore
-const __VLS_85 = __VLS_asFunctionalComponent(__VLS_84, new __VLS_84({
+const __VLS_95 = __VLS_asFunctionalComponent(__VLS_94, new __VLS_94({
     ...{ 'onClick': {} },
     color: "blue-darken-1",
     text: true,
 }));
-const __VLS_86 = __VLS_85({
+const __VLS_96 = __VLS_95({
     ...{ 'onClick': {} },
     color: "blue-darken-1",
     text: true,
-}, ...__VLS_functionalComponentArgsRest(__VLS_85));
-let __VLS_88;
-let __VLS_89;
-const __VLS_90 = ({ click: {} },
+}, ...__VLS_functionalComponentArgsRest(__VLS_95));
+let __VLS_98;
+let __VLS_99;
+const __VLS_100 = ({ click: {} },
     { onClick: (...[$event]) => {
             __VLS_ctx.dialogEliminar = false;
             // @ts-ignore
             [dialogEliminar,];
         } });
-const { default: __VLS_91 } = __VLS_87.slots;
-var __VLS_87;
-const __VLS_92 = {}.VBtn;
+const { default: __VLS_101 } = __VLS_97.slots;
+var __VLS_97;
+const __VLS_102 = {}.VBtn;
 /** @type {[typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, typeof __VLS_components.VBtn, typeof __VLS_components.vBtn, ]} */ ;
 // @ts-ignore
 VBtn;
 // @ts-ignore
-const __VLS_93 = __VLS_asFunctionalComponent(__VLS_92, new __VLS_92({
+const __VLS_103 = __VLS_asFunctionalComponent(__VLS_102, new __VLS_102({
     ...{ 'onClick': {} },
     color: "blue-darken-1",
     text: true,
 }));
-const __VLS_94 = __VLS_93({
+const __VLS_104 = __VLS_103({
     ...{ 'onClick': {} },
     color: "blue-darken-1",
     text: true,
-}, ...__VLS_functionalComponentArgsRest(__VLS_93));
-let __VLS_96;
-let __VLS_97;
-const __VLS_98 = ({ click: {} },
+}, ...__VLS_functionalComponentArgsRest(__VLS_103));
+let __VLS_106;
+let __VLS_107;
+const __VLS_108 = ({ click: {} },
     { onClick: (__VLS_ctx.eliminarTarea) });
-const { default: __VLS_99 } = __VLS_95.slots;
+const { default: __VLS_109 } = __VLS_105.slots;
 // @ts-ignore
 [eliminarTarea,];
-var __VLS_95;
-const __VLS_100 = {}.VSpacer;
+var __VLS_105;
+const __VLS_110 = {}.VSpacer;
 /** @type {[typeof __VLS_components.VSpacer, typeof __VLS_components.vSpacer, typeof __VLS_components.VSpacer, typeof __VLS_components.vSpacer, ]} */ ;
 // @ts-ignore
 VSpacer;
 // @ts-ignore
-const __VLS_101 = __VLS_asFunctionalComponent(__VLS_100, new __VLS_100({}));
-const __VLS_102 = __VLS_101({}, ...__VLS_functionalComponentArgsRest(__VLS_101));
+const __VLS_111 = __VLS_asFunctionalComponent(__VLS_110, new __VLS_110({}));
+const __VLS_112 = __VLS_111({}, ...__VLS_functionalComponentArgsRest(__VLS_111));
+var __VLS_87;
 var __VLS_77;
-var __VLS_67;
-var __VLS_62;
-/** @type {__VLS_StyleScopedClasses['mr-2']} */ ;
+var __VLS_72;
 /** @type {__VLS_StyleScopedClasses['text-h5']} */ ;
 // @ts-ignore
-var __VLS_57 = __VLS_56;
+var __VLS_67 = __VLS_66;
 var __VLS_dollars;
 let __VLS_self;
